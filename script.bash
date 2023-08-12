@@ -7,7 +7,7 @@ mkdir -p "$logging"
 CombinedLog="$logging/cumulative-kernel-logs.txt"
 CompressedCombinedLog="$logging/cumulative-kernel-logs.tar.bz2"
 
-while true; do
+
     CurrentDate=$(date +"%Y-%m-%dT%H-%M")
 
     LogFilename="$logging/kernel-logs_${CurrentDate}.txt"
@@ -19,4 +19,4 @@ while true; do
     tar --append -f "$CompressedCombinedLog" "$LogFilename"
     dbxcli put "$CompressedCombinedLog" "/Dropbox/logs/"
     rm "$CompressedFilename" "$LogFilename"
-done
+
